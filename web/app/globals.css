@@ -1,7 +1,7 @@
 @import "./tokens.css";
 @import "./ui-primitives.css";
 /* Эталонные экранные стили demo (кнопки .btn, .sales-layout, .dashboard-grid, …) */
-@import "../../styles/components.css";
+@import "../../demo/styles/components.css";
 @import "./stage4-enhancements.css";
 @import "tailwindcss";
 
