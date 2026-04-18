@@ -1,0 +1,64 @@
+@import "./tokens.css";
+@import "./ui-primitives.css";
+/* Эталонные экранные стили demo (кнопки .btn, .sales-layout, .dashboard-grid, …) */
+@import "../../styles/components.css";
+@import "./stage4-enhancements.css";
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--cream);
+  --color-foreground: var(--ink);
+  --color-muted: var(--muted);
+  --color-surface: var(--white);
+  --color-border: var(--border);
+  --color-accent: var(--gold);
+  --color-warn: var(--status-amber);
+  --color-danger: var(--status-red);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* Main content offset (demo: .app-body padding-top + .main-content padding) */
+.app-main {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-top: calc(var(--topbar-height) + var(--content-pad-y-top));
+  padding-bottom: var(--content-pad-y-bottom);
+  padding-left: var(--content-pad-x-mobile);
+  padding-right: var(--content-pad-x-mobile);
+}
+
+@media (min-width: 768px) {
+  .app-main {
+    padding-left: var(--content-pad-x);
+    padding-right: var(--content-pad-x);
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}

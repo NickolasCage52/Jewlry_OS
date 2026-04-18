@@ -1,0 +1,153 @@
+/**
+ * Stage 4 — адаптив shell, motion preferences, focus, overlay helpers.
+ * Дополняет demo `components.css` без правки эталона.
+ */
+
+/* —— Mobile nav drawer —— */
+.app-shell-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 104;
+  background: rgba(12, 11, 8, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-out, ease);
+}
+
+.app-shell-drawer-backdrop--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.app-shell-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 105;
+  width: min(288px, 88vw);
+  max-width: 100%;
+  background: var(--ink);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px;
+  box-shadow: 8px 0 32px rgba(12, 11, 8, 0.18);
+  transform: translateX(-100%);
+  transition: transform 0.32s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  pointer-events: none;
+}
+
+.app-shell-drawer--open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .app-shell-drawer,
+  .app-shell-drawer-backdrop {
+    display: none !important;
+  }
+}
+
+/* Гамбургер только на мобильном (вне demo topbar — доп. контроль) */
+.topbar__menu-btn {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .topbar__menu-btn {
+    display: none !important;
+  }
+}
+
+.topbar__crumb-wrap {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar__crumb--truncate {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* —— Интерактивные зоны demo без нативного focus ring —— */
+.funnel-bar-wrap:focus {
+  outline: none;
+}
+
+.funnel-bar-wrap:focus-visible {
+  outline: 2px solid var(--gold-border);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.sales-list__item:focus {
+  outline: none;
+}
+
+.sales-list__item:focus-visible {
+  outline: 2px solid var(--gold-border);
+  outline-offset: -2px;
+}
+
+.filter-chip:focus {
+  outline: none;
+}
+
+.filter-chip:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus-ring-color, rgba(184, 146, 42, 0.15));
+}
+
+.media-card:focus-visible {
+  outline: 2px solid var(--gold-border);
+  outline-offset: 2px;
+}
+
+/* —— Плавный отклик topbar icon (дополняет demo hover) —— */
+.topbar__icon-btn {
+  transition:
+    background var(--duration-fast, 150ms) ease,
+    color var(--duration-fast, 150ms) ease,
+    transform 0.12s ease;
+}
+
+.topbar__icon-btn:active {
+  transform: scale(0.96);
+}
+
+/* —— Меньше движения по запросу пользователя —— */
+@media (prefers-reduced-motion: reduce) {
+  .module-view {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .modal-backdrop,
+  .modal,
+  .ui-modal-backdrop,
+  .ui-modal,
+  .app-shell-drawer,
+  .app-shell-drawer-backdrop {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .app-shell-drawer {
+    transition: none !important;
+  }
+
+  .app-shell-drawer--open {
+    transform: translateX(0);
+  }
+
+  .feed-item {
+    animation: none !important;
+  }
+}

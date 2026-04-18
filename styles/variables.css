@@ -1,0 +1,45 @@
+:root {
+  --ink: #0c0b08;
+  --ink2: #1e1d18;
+  --ink3: #3a3830;
+  --muted: #8a8878;
+  --muted2: #b4b09e;
+  --gold: #b8922a;
+  --gold2: #d4a843;
+  --gold-pale: #f8f2e4;
+  --gold-border: #e2cc96;
+  --cream: #faf8f3;
+  --white: #ffffff;
+  --border: #e8e4d8;
+
+  --status-green: #1a4a2a;
+  --status-green-bg: #eef6f0;
+  --status-green-border: #a8c8b0;
+  --status-amber: #4a2a0a;
+  --status-amber-bg: #f8f2e4;
+  --status-amber-border: #d4a843;
+  --status-red: #8b2020;
+  --status-red-bg: #fdf0ee;
+  --status-red-border: #e8c5c0;
+  --status-blue: #1a2a4a;
+  --status-blue-bg: #eef0f6;
+  --status-blue-border: #a8b8d4;
+
+  --stock-sold-bg: #f5f5f2;
+  --stock-sold-text: #8a8878;
+  --stock-sold-border: #d5d0c0;
+
+  --chart-gray: #b4b09e;
+  --chart-gray-light: #e8e4d8;
+
+  --sidebar-width: 220px;
+  --topbar-height: 56px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 5px;
+  --shadow: 0 10px 40px rgba(12, 11, 8, 0.07);
+  --shadow-sm: 0 4px 18px rgba(12, 11, 8, 0.06);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Jost", system-ui, sans-serif;
+}

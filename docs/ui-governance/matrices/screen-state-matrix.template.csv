@@ -1,0 +1,11 @@
+id,wave,screen_name,demo_reference,web_route,state,parity_status,issue_type,action_required,exception_status,rationale_if_exception,owner,verified_by,notes
+W1-EXAMPLE,1,Example row,src/modules/dashboard/Dashboard.js,/app/dashboard,default,not_started,none,Fill after audit,none,,,,
+W1-SHELL,1,App shell,src/components/Sidebar.js;TopBar.js;styles/components.css,/app/dashboard,default,not_started,token,Audit vs demo variables.css,none,,,,
+W1-SHELL-MOBILE,1,App shell mobile,styles/global.css @media,/app/dashboard,default,not_started,responsive,Define breakpoint rules vs demo,none,,,,
+W1-NAV,1,Primary navigation,src/components/Sidebar.js,/app/sales,active_item,not_started,ux,Map APP_NAV to demo sidebar styling,none,,,,
+W1-DASH,1,Owner Dashboard,src/modules/dashboard/Dashboard.js,/app/dashboard,default,not_started,visual,Side-by-side screenshot,none,,,,
+W1-SALES,1,Sales workspace,src/modules/sales/Sales.js,/app/sales,default,not_started,visual,Side-by-side screenshot,none,,,,
+W1-SALES-ID,1,Sales detail,src/modules/sales/ClientCard.js,/app/sales/[id],default,not_started,visual,Parity check,none,,,,
+W1-CONTENT,1,Content Center,src/modules/content/ContentCenter.js,/app/content,default,not_started,visual,Parity check,none,,,,
+W1-CATALOG,1,Product catalog,n_a (no full demo module),/app/catalog,default,n_a,token,Align shell + tokens to demo first,none,,,,
+W1-MODAL,1,Modal pattern,src/components/ui/Modal.js,TBD route with modal,modal_open,not_started,ux,Focus trap + backdrop vs demo,none,,,,
