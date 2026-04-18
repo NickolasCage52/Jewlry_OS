@@ -1,0 +1,244 @@
+/* Презентационная обложка — палитра из web/app/tokens.css */
+
+:root {
+  --ink: #0c0b08;
+  --ink2: #1e1d18;
+  --muted: #8a8878;
+  --gold: #b8922a;
+  --gold2: #d4a843;
+  --cream: #faf8f3;
+  --border: #e8e4d8;
+  --white: #ffffff;
+  --shadow: 0 24px 64px rgba(12, 11, 8, 0.12);
+  --radius: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Jost", system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: radial-gradient(120% 80% at 50% -20%, #f5f0e6 0%, var(--cream) 45%, #efe8dc 100%);
+}
+
+h1,
+h2,
+.brand {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.brand {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.tagline {
+  margin: 0 auto;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.badge-row {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--ink2);
+}
+
+.badge--gold {
+  background: linear-gradient(135deg, #f8f2e4, #fff);
+  border-color: var(--gold-border, #e2cc96);
+  color: #5c4a12;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 840px) {
+  .grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: stretch;
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: var(--radius);
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card--hero {
+  border: 1px solid rgba(184, 146, 42, 0.35);
+  box-shadow:
+    var(--shadow),
+    0 0 0 1px rgba(212, 168, 67, 0.12);
+  background: linear-gradient(165deg, #fffefb 0%, #fff 40%, #faf8f3 100%);
+}
+
+.card-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.card p {
+  margin: 0 0 16px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.card ul {
+  margin: 0 0 24px;
+  padding-left: 1.1rem;
+  color: var(--ink2);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.card ul li {
+  margin-bottom: 6px;
+}
+
+.cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta--primary {
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  color: #1a1508;
+  box-shadow: 0 8px 28px rgba(184, 146, 42, 0.35);
+}
+
+.cta--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(184, 146, 42, 0.42);
+}
+
+.cta--secondary {
+  background: var(--white);
+  color: var(--ink2);
+  border: 1px solid var(--border);
+}
+
+.cta--secondary:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hint {
+  margin-top: 14px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.hint--warn {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fdf8ee;
+  border: 1px solid #e2cc96;
+  color: #5c4a12;
+}
+
+.hint--warn.is-visible {
+  display: block;
+}
+
+footer {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

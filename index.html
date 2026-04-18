@@ -3,15 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jewelry OS · Демо</title>
-    <link rel="stylesheet" href="styles/global.css" />
-    <link rel="stylesheet" href="styles/components.css" />
+    <title>Jewelry OS — презентация</title>
+    <meta
+      name="description"
+      content="Операционная система ювелирного бизнеса: полноценное веб-приложение и лёгкое статическое демо."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="presentation.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <!-- Chart.js: глобальный Chart для дашборда -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <!-- ES-модули: откройте через локальный сервер (двойной клик по serve.bat или: python -m http.server 8080) -->
-    <script type="module" src="src/main.js"></script>
+    <div class="wrap">
+      <header>
+        <p class="brand">Jewelry OS</p>
+        <p class="tagline">
+          Единая точка входа для презентации: полноценное приложение на Next.js — основной фокус;
+          статический прототип — для быстрого просмотра без деплоя.
+        </p>
+        <div class="badge-row">
+          <span class="badge badge--gold">Для заказчика</span>
+          <span class="badge">Next.js 15</span>
+          <span class="badge">React19</span>
+        </div>
+      </header>
+
+      <div class="grid">
+        <article class="card card--hero">
+          <p class="card-label">Главное · веб-приложение</p>
+          <h2>Полная операционная оболочка</h2>
+          <p>
+            Каталог и склад, продажи и CRM, контент и публикации по каналам, закупки и ценообразование,
+            онбординг ролей, регламенты, AI-панели (демо-режим) — в одном интерфейсе.
+          </p>
+          <ul>
+            <li>Авторизация по ролям и доступ к разделам</li>
+            <li>Навигация и экраны, готовые к показу процессов</li>
+            <li>Современный стек: Next.js, TypeScript, Tailwind</li>
+          </ul>
+          <div class="cta-row">
+            <a id="web-app-cta" class="cta cta--primary" href="#" rel="noopener"
+              >Открыть веб-приложение</a
+            >
+            <a
+              class="cta cta--secondary"
+              href="https://vercel.com/docs/frameworks/nextjs"
+              target="_blank"
+              rel="noopener"
+              >Как опубликовать на Vercel</a
+            >
+          </div>
+          <p id="web-url-hint" class="hint hint--warn" role="status"></p>
+          <p class="hint">
+            Хостинг: рекомендуется Vercel (бесплатный тариф) — подключите репозиторий, укажите корень
+            проекта <strong>web</strong>, затем вставьте выданный URL в файл
+            <strong>site-config.js</strong> в корне репозитория.
+          </p>
+        </article>
+
+        <article class="card">
+          <p class="card-label">Дополнительно</p>
+          <h2>Лёгкое статическое демо</h2>
+          <p>
+            Ранний прототип на чистом HTML/JS: три ключевых экрана без сервера. Удобно, если нужно
+            быстро открыть ссылку без учётной записи.
+          </p>
+          <ul>
+            <li>Рабочее место менеджера, контент-центр, кабинет собственника</li>
+            <li>Работает на GitHub Pages в подкаталоге</li>
+          </ul>
+          <div class="cta-row">
+            <a class="cta cta--secondary" href="demo/">Открыть статическое демо</a>
+          </div>
+          <p class="hint">Локально: <code>demo/serve.bat</code> или сервер из корня репозитория.</p>
+        </article>
+      </div>
+
+      <footer>
+        Исходный код:
+        <a href="https://github.com/NickolasCage52/Jewlry_OS" target="_blank" rel="noopener"
+          >NickolasCage52/Jewlry_OS</a
+        >
+        · ветка приложения: каталог <strong>web/</strong>
+      </footer>
+    </div>
+
+    <script src="site-config.js"></script>
+    <script>
+      (function () {
+        var url = (window.JEWELRY_OS_WEB_APP_URL || "").trim();
+        var cta = document.getElementById("web-app-cta");
+        var hint = document.getElementById("web-url-hint");
+        if (url) {
+          cta.href = url;
+          cta.target = "_blank";
+        } else {
+          hint.textContent =
+            "Чтобы кнопка вела на опубликованное приложение, задайте URL в файле site-config.js (после деплоя web на Vercel).";
+          hint.classList.add("is-visible");
+          cta.addEventListener("click", function (e) {
+            e.preventDefault();
+            hint.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

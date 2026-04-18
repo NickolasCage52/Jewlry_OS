@@ -50,7 +50,7 @@
 
 
 
-- **Тип:** SPA без Next, точка входа `index.html`, логика в `src/`.
+- **Тип:** SPA без Next, точка входа `demo/index.html`, логика в `demo/src/`.
 
 - **Навигация:** клиентский роутер `src/router.js` — модули `sales`, `content`, `dashboard`.
 

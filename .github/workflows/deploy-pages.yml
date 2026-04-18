@@ -1,6 +1,5 @@
-# Статическое демо из корня репозитория (index.html + src + styles).
-# Полное Next.js-приложение в web/ на GitHub Pages без сервера не публикуется
-# (Server Actions и cookies-сессии несовместимы со static export).
+# Публикует презентационную страницу (корень) + статическое демо в /demo/.
+# Next.js (web/) публикуется отдельно — см. web/vercel.json и site-config.js.
 
 name: Deploy to GitHub Pages
 
@@ -26,8 +25,12 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site
-          cp index.html _site/
-          cp -r src styles _site/
+          cp index.html presentation.css site-config.js _site/
+          cp -r demo _site/
+      - name: Inject web app URL (optional)
+        if: ${{ vars.JEWELRY_OS_WEB_URL != '' }}
+        run: |
+          printf '%s\n' 'window.JEWELRY_OS_WEB_APP_URL = "${{ vars.JEWELRY_OS_WEB_URL }}";' > _site/site-config.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
